@@ -181,8 +181,10 @@ class DesignerView {
 		window.addEventListener('resize', () => this.onResized());
 
 		this.container = document.createElement('div');
-		this.container.classList.add('wfd-designer');
-		this.container.classList.add(`wfd-theme-${theme}`);
+		this.container.classList.add('w-full');
+		this.container.classList.add('relative');
+		this.container.classList.add('h-full');
+		//this.container.classList.add(`wfd-theme-${theme}`);
 
 		const gridPatternId = 'wfd-grid-' + DesignerView._nextGridPatternId++;
 		this.gridPatternPath = createSvgElement('path', {
@@ -227,6 +229,7 @@ class DesignerView {
 		this.svg.appendChild(this.root);
 
 		this.container.appendChild(this.svg);
+		this.svg.classList.add('absolute');
 
 		this.state.control.view.createView(this.container);
 
